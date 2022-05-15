@@ -31,7 +31,7 @@ export const GlobalStyle = createGlobalStyle`
     a{
         text-decoration: none;
     }
-    p, a{
+    p, a,li{
         font-family: 'Roboto', sans-serif;
         color: var( --text-body);
     }
@@ -44,10 +44,41 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Francois One', sans-serif;
         color: var(--text-body);
     }
+    ul{
+        display: flex;
+    }
+    li{
+        list-style: none;
+    }
+
+    input, textarea{
+        
+        outline: none;
+        padding: 1rem;
+        font-size:1.2rem;
+        background:#625c5e ;
+        border-radius: 0.5rem;
+        color:var(--gold-text)
+    }
+    ::placeholder{
+        font-size:1.2rem;
+        color:var(--gold-text)
+    }
 
     .gold-text{
         color: var(--gold-text);
         font-weight: bold;
+    }
+
+    button{
+        padding: 0.8rem;
+        border: none;
+        border-radius: 0.5rem;
+        background: var(--gold-text);
+        color: var(--text-title);
+        font-family: 'Roboto', sans-serif;
+        font-size:1.3rem;
+        cursor: pointer;
     }
 
 `

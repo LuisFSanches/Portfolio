@@ -16,7 +16,7 @@ export const Introduction = styled.section`
     flex-direction: column;
     margin-right: 5rem;
     margin-top:7rem;
-    margin-bottom: 20rem;
+    margin-bottom: 10rem;
     
 
     h1{
@@ -36,7 +36,7 @@ export const Introduction = styled.section`
 `
 
 export const Section= styled.section`
-    width: 50rem;
+    width: 55rem;
     display: flex;
     flex-direction: column;
     margin-right: 5rem;
@@ -64,13 +64,20 @@ export const Section= styled.section`
 
 export const Description = styled.div`
     display: flex;
+    justify-content: center;
+    align-items: center;
     p{
         font-size: 1.3rem;
         line-height: 1.25;
         margin-bottom: 0.8rem;
     }
     img{
-        height: 15rem;
+        width: 16rem;
+        height: 18rem;
+        padding: 1rem 0;
+        border: 1px solid var(--gold-text);
+        border-radius: 0.5rem;
+        
     }
 
 `
@@ -90,5 +97,101 @@ export const Skill = styled.div`
         max-width: 5rem;
         max-height: 5.5rem;
     }
+`
+interface ProjectContainer{
+    changeSide: boolean
+}
+export const ProjectContainer = styled.div<ProjectContainer>`
+    width: 65rem;
+    display: flex;
+    position: relative;
+    margin-bottom: 15rem;
+    
+    img{
+        max-width: 35rem;
+        max-height: 30rem;
+        margin-left: ${(props)=> props.changeSide
+            ? '34rem'
+            : '0rem'
+        };
+        position: absolute;
+        z-index: 0;
+    }
+`
+
+export const ProjectDescription = styled.div<ProjectContainer>`
+    width: 35rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    margin-left: ${(props)=> props.changeSide
+            ? '0rem'
+            : '33rem'
+        };
+    z-index: 5;
+
+   
+    h2{
+        margin: 1rem 0;
+        text-align:${(props)=> props.changeSide
+            ? 'start'
+            : 'end'
+        };
+        font-size: 1.7rem;
+        color: var(--gold-text);
+    }
+    .description{
+        display: flex;
+        text-align: justify;
+        padding: 0.8rem;
+        background: #403b3d;
+        border-radius: 0.5rem;
+    }
+     p{
+        margin: 1rem;
+        line-height: 1.2;
+        font-size: 1.2rem;
+    }
+`
+
+export const TechsApplied = styled.div`
+    width: 80%;
+    margin-left: 3rem;
+    margin-top: 1rem;
+    ul{
+        display: flex;
+        justify-content: space-between;
+    }
+    li{
+        font-size: 1.15rem;
+        border-bottom: 1px solid var(--gold-text);
+    }
+`
+
+export const ContactForm = styled.form`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .form-row{
+        width: 100%;
+        display: flex;
+        justify-content:space-around;
+    }
+    input{
+        width: 50%;
+        margin-bottom: 1.2rem;
+    }
+    input:last-child{
+        margin-left: 1.3rem;
+    }
+    textarea{
+        margin-bottom: 1.2rem;
+    }
+
+    button{
+        width: 15rem;
+    }
+
 `
 
