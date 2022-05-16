@@ -81,4 +81,10 @@ export const GlobalStyle = createGlobalStyle`
         cursor: pointer;
     }
 
+    @media screen and (max-width: 320px) {
+        #__next {
+            display: flex
+        }
+    }
+
 `

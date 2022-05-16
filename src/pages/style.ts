@@ -11,7 +11,7 @@ export const Main = styled.main`
     
 `
 export const Introduction = styled.section`
-    max-width: 50rem;
+    max-width: 99vw;
     display: flex;
     flex-direction: column;
     margin-right: 5rem;
@@ -27,16 +27,59 @@ export const Introduction = styled.section`
     }
 
     p{  
+        max-width: 100%;
         width: 35rem;
         font-size: 1.2rem;
         line-height: 1.5;
         text-align: justify;
         margin-top: 1rem;
     }
+
+    @media (max-width:950px){
+        justify-content: center;
+        margin-right: 0;
+        h1{
+            font-size: 5rem;
+        }
+        h2{
+            font-size: 4rem;
+        }
+    }
+
+    @media (max-width:720px){
+        h1{
+            font-size: 4.5rem;
+        }
+        h2{
+            font-size: 3.5rem;
+        }
+    }
+
+    @media (max-width:630px){
+        h1{
+            font-size: 3.8rem;
+        }
+        h2{
+            font-size: 2.8rem;
+        }
+    }
+
+    @media (max-width:400px){
+        padding: 0 1rem;
+        p{
+            margin-bottom: 1rem;
+        }
+        h1{
+            font-size: 3.1rem;
+        }
+        h2{
+            font-size: 2.6rem;
+        }
+    }
 `
 
 export const Section= styled.section`
-    width: 55rem;
+    max-width: 55rem;
     display: flex;
     flex-direction: column;
     margin-right: 5rem;
@@ -59,12 +102,24 @@ export const Section= styled.section`
         h1{
             font-size: 1.6rem;
         }
+
+        @media (max-width:780px){
+            width: 100vw;
+            padding: 0 2rem;
+        }
     }
+
+
+    @media (max-width:950px){
+        justify-content: center;
+        margin: 0 auto;
+        margin-top:12rem;
+    }
+    
 `
 
 export const Description = styled.div`
     display: flex;
-    justify-content: center;
     align-items: center;
     p{
         font-size: 1.3rem;
@@ -80,11 +135,38 @@ export const Description = styled.div`
         
     }
 
+    @media (max-width:780px){
+        flex-direction: column;
+        padding: 0 1.3rem;
+        
+        p{
+            width: 100%;
+            text-align:justify;
+
+        }
+    }
+
 `
 
 export const MySkills = styled.div`
+    width: 55rem;
+    
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    @media (max-width:780px){
+        width: 100%;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-self: center;
+        justify-self: center;
+    }
+
+    @media (max-width:750px){
+        grid-template-columns: 1fr 1fr ;
+        justify-items: center;
+        align-self: center;
+        justify-self: center;
+    }
 `
 
 export const Skill = styled.div`
@@ -93,44 +175,71 @@ export const Skill = styled.div`
     align-items: center;
     margin-bottom: 2rem;
     margin-top:2rem;
+    transition: transform .3s;
+
     img{
         max-width: 5rem;
         max-height: 5.5rem;
+    }
+
+    img:hover{
+        transform: scale(1.2);
     }
 `
 interface ProjectContainer{
     changeSide: boolean
 }
+
+
 export const ProjectContainer = styled.div<ProjectContainer>`
-    width: 65rem;
+    width: 100%;
     display: flex;
     position: relative;
-    margin-bottom: 15rem;
-    
+    margin-bottom: 4rem;
+
+    @media (max-width:780px){
+        width: 90vw;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        margin-bottom: 4rem;
+        
+    }
+`
+
+export const ImageContainer = styled.div`
+    max-width: 42vw;
+    max-height: 40vh;
+
     img{
-        max-width: 35rem;
-        max-height: 30rem;
-        margin-left: ${(props)=> props.changeSide
-            ? '34rem'
-            : '0rem'
-        };
-        position: absolute;
-        z-index: 0;
+        max-width: inherit;
+        max-height: inherit;
+        height: inherit;
+        width: inherit;
+        object-fit: cover;
+    }
+
+    @media (max-width:780px){
+        max-width: 99%;
+        width: 80vw;
+        height: 100%;
+        display: flex;
+        justify-content: center;
     }
 `
 
 export const ProjectDescription = styled.div<ProjectContainer>`
-    width: 35rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    margin-left: ${(props)=> props.changeSide
-            ? '0rem'
-            : '33rem'
-        };
-    z-index: 5;
+    width:39vw;
+    margin-left: ${(props)=>props.changeSide
+        ? '0'
+        :'1rem'
+    };
+    margin-right: ${(props)=>props.changeSide
+        ? '1rem'
+        :'0'
+    };
+    z-index:5;
 
-   
     h2{
         margin: 1rem 0;
         text-align:${(props)=> props.changeSide
@@ -152,11 +261,32 @@ export const ProjectDescription = styled.div<ProjectContainer>`
         line-height: 1.2;
         font-size: 1.2rem;
     }
+
+    @media (max-width:780px){
+        width: 90%;
+        height: 100%;
+        margin:0;
+        position: absolute;
+        background: #403b3d;
+        opacity: 0.88;
+
+        h2{
+            font-size: 1.4rem;
+            text-align:center
+        }
+
+        p{
+            margin: 0;
+        }
+    }
+
+
+ 
 `
 
 export const TechsApplied = styled.div`
-    width: 80%;
-    margin-left: 3rem;
+    width: 90%;
+    margin-left: 2rem;
     margin-top: 1rem;
     ul{
         display: flex;
@@ -165,6 +295,27 @@ export const TechsApplied = styled.div`
     li{
         font-size: 1.15rem;
         border-bottom: 1px solid var(--gold-text);
+    }
+
+    @media (max-width:780px){
+        width: 95%;
+        margin: 0;
+        margin-top: 1rem;
+        
+        ul{
+            justify-content: center;
+            align-items: center;    
+        }
+
+        li{
+            max-width: 95%;
+            margin-left: 1rem;
+            font-size: 1rem;
+        }
+
+
+        
+       
     }
 `
 

@@ -1,11 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import { Container, Resume, Sections } from "./style";
+import { Container, Resume, Sections, SideMenu } from "./style";
 import { useScrollDirection } from "react-use-scroll-direction"
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 export function Header(){
     const [showHeader, setShowHeader] = useState(true)
     const { isScrollingUp, isScrollingDown } = useScrollDirection()
+
+    const [showOpenMenu, setOpenMenu] = useState(false)
+    const [showCloseMenuButton, setShowCloseMenuButton] = useState(false)
 
     function handleShowScroll(){
         if(isScrollingDown){
@@ -13,6 +19,16 @@ export function Header(){
         } else if(isScrollingUp){
             setShowHeader(true)
         }
+    }
+
+    function handleOpenMenu(){
+        setOpenMenu(true)
+        setShowCloseMenuButton(true)
+    }
+
+    function handleCloseMenu(){
+        setOpenMenu(false)
+        setShowCloseMenuButton(false)
     }
     
     useEffect(()=>{
@@ -25,7 +41,7 @@ export function Header(){
                 <a href="/documents/curriculo.pdf" target="_blank" rel="noopener noreferrer">Currículo</a>
                 
             </Resume>
-            <Sections>
+            <Sections showMenu={showOpenMenu}>
                 <a href="#introducao">
                     <span>01-</span>
                     Sobre mim
@@ -46,6 +62,16 @@ export function Header(){
                     Contato
                 </a>
             </Sections>
+            <SideMenu>
+                {showCloseMenuButton
+                    ? <button className="header-button" onClick={handleCloseMenu}>
+                        <FontAwesomeIcon icon={faXmark}/>
+                     </button>
+                    : <button className="header-button" onClick={handleOpenMenu}>
+                        <FontAwesomeIcon icon={faBars}/>
+                      </button>
+                }
+            </SideMenu>
         </Container>
     )
 }

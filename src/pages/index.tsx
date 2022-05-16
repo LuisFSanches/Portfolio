@@ -3,7 +3,7 @@ import { ContactForm } from "../components/ContactForm";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { SocialMediaSideBar } from "../components/SocialMediaSideBar";
-import { Description, Introduction, Main, MySkills, ProjectContainer, ProjectDescription, Section, Skill, TechsApplied } from "./style";
+import { Description, ImageContainer, Introduction, Main, MySkills, ProjectContainer, ProjectDescription, Section, Skill, TechsApplied } from "./style";
 
 export default function Home() {
   return (
@@ -15,9 +15,8 @@ export default function Home() {
           <p className="gold-text">Olá, me chamo</p>
           <h1>Luis Felipe Sanches</h1>
           <h2>Desenvolvedor FullStack.</h2>
-          <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            It has survived not only five centuries </p>
+          <p> Sou um Engenheiro Projetista que decidiu seguir um sonho antigo e se tornar um desenvolvedor de software. 
+            Atualmente estou focado em estudar tecnologias que abrangem tanto o backend como o frontend. </p>
         </Introduction>
 
         <Section id="sobremim">
@@ -28,9 +27,9 @@ export default function Home() {
 
             <Description>
               <div className="description-text">
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown </p>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown </p>
-                  <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s</p>
+                  <p>Olá, meu nome é Luis Felipe, atuei por mais de dois anos como Engenheiro Projetista, principalmente na área de <a href="https://grabcad.com/luis.felipe.sanches-1/models" target="_blank" rel="noopener noreferrer" className="gold-text">projetos</a> e análises envolvendo segurança de máquinas e equipamentos. </p>
+                  <p>Gosto muito de aprender e me atualizar, sempre busco entregar o melhor possível, me atentando a pequenos detalhes. Essa é uma característica que desenvolvi ainda como projetista. </p>
+                  <p>Atualmente tenho feito pequenos projetos como freelancer, mas sigo em busca de uma oportunidade de ingressar no mercado e enfrentar novos desafios como desenvolvedor.</p>
               </div>
 
               <img src='/images/avatar.png' alt="" />
@@ -43,8 +42,9 @@ export default function Home() {
             <p className="gold-text">02. </p>
             <h1>Skills</h1>
           </div>
-
-          <p>Atualmente estas são as tecnologias que venho utilizando.</p>
+          <Description>
+            <p>Atualmente estas são as tecnologias que venho utilizando.</p>
+          </Description>
 
           <MySkills>
           <Skill>
@@ -109,7 +109,11 @@ export default function Home() {
             <h1>Meus Trabalhos</h1>
           </div>
           <ProjectContainer changeSide={false}>
-            <img src="/images/projeto-mais-vida.png" alt="" />
+            
+            <ImageContainer>
+              <img src="/images/projeto-mais-vida.png" alt="" />
+            </ImageContainer>
+
             <ProjectDescription changeSide={false}>
               <h2>Gerador de Documentação</h2>
               <div className="description">
@@ -147,7 +151,9 @@ export default function Home() {
               </TechsApplied>
             </ProjectDescription>
 
-            <img src="/images/projeto-formulario-mirai.png" alt="" />
+              <ImageContainer>
+                <img src="/images/projeto-formulario-mirai.png" alt="" />
+              </ImageContainer>
             
           </ProjectContainer>
         </Section>
@@ -157,9 +163,7 @@ export default function Home() {
               <p className="gold-text">04. </p>
               <h1>Entre em Contato</h1>
           </div>
-          <ContactForm/>
-           
-          
+          <ContactForm/>        
         </Section>
 
         <Footer/>

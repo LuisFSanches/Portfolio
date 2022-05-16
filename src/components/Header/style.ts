@@ -2,7 +2,10 @@ import styled from 'styled-components'
 
 interface HeaderProps{
     showHeader:boolean;
+}
 
+interface MenuProps{
+    showMenu: boolean
 }
 export const Container = styled.div<HeaderProps>`
     width: 100%;
@@ -19,9 +22,6 @@ export const Container = styled.div<HeaderProps>`
         ? '1'
         : '0'
     };
-
-
-
 `
 export const Resume = styled.div`
     padding: 0.7rem;
@@ -33,7 +33,8 @@ export const Resume = styled.div`
         color: var(--gold-text);
     }
 `
-export const Sections = styled.div`
+export const Sections = styled.div <MenuProps>`
+    display: flex;
     a{
         font-size: 1.2rem;
     }
@@ -45,5 +46,37 @@ export const Sections = styled.div`
     }
     span{
         color: var(--gold-text);
+    }
+
+    @media (max-width:800px){
+        display: ${(props)=>props.showMenu ? 'flex' : 'none'};
+        height: 100vh;
+        width: 50%;
+        flex-direction: column;
+        align-items: center;
+        text-align:right;
+        justify-content: space-around;
+        padding: 8rem 0;
+        background: #403b3d;
+        position: absolute;
+        right: 0rem;
+        top: 0rem;
+    }
+`
+
+export const SideMenu = styled.div`
+
+    display: none;
+    .header-button{
+        background: none;
+        color:var(--gold-text);
+        font-size:1.5rem
+    }
+    @media (max-width:800px){
+        display: flex;
+        position: absolute;
+        right: 0;
+        top: 0.8rem;
+
     }
 `
