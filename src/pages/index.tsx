@@ -3,7 +3,7 @@ import { ContactForm } from "../components/ContactForm";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { SocialMediaSideBar } from "../components/SocialMediaSideBar";
-import { Description, ImageContainer, Introduction, Main, MySkills, ProjectContainer, ProjectDescription, Section, Skill, TechsApplied } from "./style";
+import { Description, ImageContainer, Introduction, Main, MySkills, ProjectContainer, ProjectDescription, Section, Skill, TechsApplied } from "../styles/index_style";
 
 export default function Home() {
   return (
