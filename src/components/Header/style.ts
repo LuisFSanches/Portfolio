@@ -28,6 +28,10 @@ export const Resume = styled.div`
     border: 1px solid var(--gold-text);
     border-radius: 0.3rem;
     color: var(--gold-text);
+
+    a:hover{
+        color: var(--gold-text);
+    }
 `
 export const Sections = styled.div`
     a{

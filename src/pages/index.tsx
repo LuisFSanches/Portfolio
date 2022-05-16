@@ -1,7 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
+import { ContactForm } from "../components/ContactForm";
+import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { SocialMediaSideBar } from "../components/SocialMediaSideBar";
-import { ContactForm, Description, Introduction, Main, MySkills, ProjectContainer, ProjectDescription, Section, Skill, TechsApplied } from "./style";
+import { Description, Introduction, Main, MySkills, ProjectContainer, ProjectDescription, Section, Skill, TechsApplied } from "./style";
 
 export default function Home() {
   return (
@@ -155,17 +157,12 @@ export default function Home() {
               <p className="gold-text">04. </p>
               <h1>Entre em Contato</h1>
           </div>
-          <ContactForm>
-            <div className="form-row">
-              <input type="text" placeholder="Nome"/>
-              <input type="text" placeholder="E-mail"/>
-            </div>
-              <textarea rows={4} placeholder="Mensagem"></textarea>
-
-              <button>Enviar</button>
-          </ContactForm>
+          <ContactForm/>
+           
           
         </Section>
+
+        <Footer/>
 
         
       </Main>

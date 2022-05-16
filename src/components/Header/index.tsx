@@ -22,7 +22,7 @@ export function Header(){
     return(
         <Container showHeader={showHeader} >
             <Resume>
-                <p>Currículo</p>
+                <a href="/documents/curriculo.pdf" target="_blank" rel="noopener noreferrer">Currículo</a>
                 
             </Resume>
             <Sections>
