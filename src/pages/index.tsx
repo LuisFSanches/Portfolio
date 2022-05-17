@@ -1,16 +1,28 @@
 /* eslint-disable @next/next/no-img-element */
+import { GlobalStyle } from '../styles/global'
 import { ContactForm } from "../components/ContactForm";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { SocialMediaSideBar } from "../components/SocialMediaSideBar";
 import { Description, ImageContainer, Introduction, Main, MySkills, ProjectContainer, ProjectDescription, Section, Skill, TechsApplied } from "../styles/index_style";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
+import { useContext, useEffect, useRef} from 'react';
+import { LayoutContext } from '../contexts/LayoutContext';
+import { ZoomedImage } from '../components/ZoomedImage';
 
 export default function Home() {
+
+  const {overlay, showOpenMenu, handleOpenZoomedImage, handleCloseModals,} = useContext(LayoutContext)
+
   return (
     <>
-      <Header/>
+      <GlobalStyle showScroll={showOpenMenu}/>
+      <Header />
       <SocialMediaSideBar/>
-      <Main>
+      <ZoomedImage/>
+
+      <Main overlay={overlay}>
         <Introduction id="introducao">
           <p className="gold-text">Olá, me chamo</p>
           <h1>Luis Felipe Sanches</h1>
@@ -110,8 +122,11 @@ export default function Home() {
           </div>
           <ProjectContainer changeSide={false}>
             
-            <ImageContainer>
-              <img src="/images/projeto-mais-vida.png" alt="" />
+            <ImageContainer onClick={()=>handleOpenZoomedImage("/images/projeto-mais-vida.png")}>
+
+                <span><FontAwesomeIcon icon={faMagnifyingGlass}/></span>
+                <img src="/images/projeto-mais-vida.png" alt="" />
+
             </ImageContainer>
 
             <ProjectDescription changeSide={false}>
@@ -151,9 +166,14 @@ export default function Home() {
               </TechsApplied>
             </ProjectDescription>
 
-              <ImageContainer>
-                <img src="/images/projeto-formulario-mirai.png" alt="" />
+              <ImageContainer onClick={()=>handleOpenZoomedImage("/images/projeto-formulario-mirai.png")}>
+
+                  <span><FontAwesomeIcon icon={faMagnifyingGlass}/></span>
+                  <img src="/images/projeto-formulario-mirai.png" alt="" />
+
               </ImageContainer>
+
+             
             
           </ProjectContainer>
         </Section>

@@ -1,17 +1,22 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Container, Resume, Sections, SideMenu } from "./style";
 import { useScrollDirection } from "react-use-scroll-direction"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { LayoutContext } from "../../contexts/LayoutContext";
+
+
+
 
 export function Header(){
     const [showHeader, setShowHeader] = useState(true)
     const { isScrollingUp, isScrollingDown } = useScrollDirection()
 
-    const [showOpenMenu, setOpenMenu] = useState(false)
-    const [showCloseMenuButton, setShowCloseMenuButton] = useState(false)
+    const {showOpenMenu, showCloseMenuButton, handleOpenMenu, handleCloseMenu, handleCloseModals} = useContext(LayoutContext)
+
+
 
     function handleShowScroll(){
         if(isScrollingDown){
@@ -21,16 +26,7 @@ export function Header(){
         }
     }
 
-    function handleOpenMenu(){
-        setOpenMenu(true)
-        setShowCloseMenuButton(true)
-    }
 
-    function handleCloseMenu(){
-        setOpenMenu(false)
-        setShowCloseMenuButton(false)
-    }
-    
     useEffect(()=>{
         handleShowScroll()
     },[isScrollingDown || isScrollingUp])
@@ -41,28 +37,37 @@ export function Header(){
                 <a href="/documents/curriculo.pdf" target="_blank" rel="noopener noreferrer">Currículo</a>
                 
             </Resume>
-            <Sections showMenu={showOpenMenu}>
+            <Sections showMenu={showOpenMenu} >
                 <a href="#introducao">
-                    <span>01-</span>
-                    Sobre mim
+                    <button className="nav-button" onClick={handleCloseMenu}>
+                        <span>01.</span>
+                        Sobre mim
+                    </button>
                 </a>
 
                 <a href="#skills">
-                    <span>02-</span>
-                    Skills
+                    <button className="nav-button" onClick={handleCloseMenu}>
+                        <span>02.</span>
+                        Skills
+                    </button>
+                    
                 </a>
 
                 <a href="#meustrabalhos">
-                    <span>03-</span>
-                    Trabalhos
+                    <button className="nav-button" onClick={handleCloseMenu}>
+                        <span>03.</span>
+                        Trabalhos
+                    </button>
                 </a>
 
                 <a href="#contato">
-                    <span>04-</span>
-                    Contato
+                    <button className="nav-button" onClick={handleCloseMenu}>
+                        <span>04.</span>
+                        Contato
+                    </button>
                 </a>
             </Sections>
-            <SideMenu>
+            <SideMenu showHeader={showHeader}>
                 {showCloseMenuButton
                     ? <button className="header-button" onClick={handleCloseMenu}>
                         <FontAwesomeIcon icon={faXmark}/>

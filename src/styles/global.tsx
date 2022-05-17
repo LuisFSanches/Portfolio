@@ -1,6 +1,11 @@
 import {createGlobalStyle} from 'styled-components'
 
-export const GlobalStyle = createGlobalStyle`
+interface ScrollProps{
+    showScroll: boolean
+}
+
+export const GlobalStyle = createGlobalStyle<ScrollProps>`
+
 
     :root{
         --background: #191919;
@@ -9,6 +14,9 @@ export const GlobalStyle = createGlobalStyle`
         --gold-text: #CCAC00;
     }
 
+    ::-webkit-scrollbar{width:6px;border-left:1px solid #E6ECF8;}
+    ::-webkit-scrollbar-thumb{background-color:var(--gold-text);}
+
     *{
         margin: 0;
         padding: 0;
@@ -16,7 +24,11 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body{
+        max-width: 100%;
         background: var(--background);
+        overflow-y: ${(props)=>
+            props.showScroll ? 'hidden' :  'auto'
+        };
     }
 
     html{
@@ -74,11 +86,15 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0.8rem;
         border: none;
         border-radius: 0.5rem;
-        background: var(--gold-text);
-        color: var(--text-title);
+        background: none;
         font-family: 'Roboto', sans-serif;
         font-size:1.3rem;
         cursor: pointer;
+    }
+
+    .submit-button{
+        background: var(--gold-text);
+        color: var(--text-title);
     }
 
     @media screen and (max-width: 320px) {

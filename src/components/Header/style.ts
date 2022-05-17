@@ -34,14 +34,27 @@ export const Resume = styled.div`
     }
 `
 export const Sections = styled.div <MenuProps>`
+    
     display: flex;
+
+    .nav-button{
+        width: 100%;
+        text-align:center;
+        font-size: 1.2rem;
+        color: var(--text-body);
+    }
+
+
     a{
         font-size: 1.2rem;
+        color: var(--text-body);
     }
+
     a~a{
         margin-left: 2rem;
     }
-    a:hover{
+
+    .nav-button:hover{
         color: var(--gold-text);
     }
     span{
@@ -51,7 +64,8 @@ export const Sections = styled.div <MenuProps>`
     @media (max-width:800px){
         display: ${(props)=>props.showMenu ? 'flex' : 'none'};
         height: 100vh;
-        width: 50%;
+        max-width: 20rem;
+        width: 100%;
         flex-direction: column;
         align-items: center;
         text-align:right;
@@ -61,21 +75,32 @@ export const Sections = styled.div <MenuProps>`
         position: absolute;
         right: 0rem;
         top: 0rem;
+
+        a{
+            width: 100%;
+            text-align:center;
+            font-size: 1.2rem;
+        }
+
+        a~a{
+        margin-left: 0rem;
+    }
     }
 `
 
-export const SideMenu = styled.div`
+export const SideMenu = styled.div <HeaderProps>`
 
     display: none;
+
     .header-button{
-        background: none;
+        display: ${(props)=> props.showHeader ? 'flex' : 'none'};
         color:var(--gold-text);
         font-size:1.5rem
     }
     @media (max-width:800px){
         display: flex;
         position: absolute;
-        right: 0;
+        right: 1rem;
         top: 0.8rem;
 
     }

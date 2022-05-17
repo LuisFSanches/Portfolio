@@ -1,15 +1,22 @@
 import styled from "styled-components";
 
+interface MainProps{
+    overlay: boolean
+}
 
-export const Main = styled.main`
-    width: 100%;
+
+export const Main = styled.main<MainProps>`
+    width: 100%; 
+    overflow-y:hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    
+    overflow-y:hidden;
+    filter: ${(props)=> props.overlay ? 'brightness(50%)' : 'brightness(100%)'};
 `
+
 export const Introduction = styled.section`
     max-width: 99vw;
     display: flex;
@@ -17,7 +24,6 @@ export const Introduction = styled.section`
     margin-right: 5rem;
     margin-top:7rem;
     margin-bottom: 10rem;
-    
 
     h1{
         font-size:6rem;
@@ -210,6 +216,7 @@ export const ProjectContainer = styled.div<ProjectContainer>`
 export const ImageContainer = styled.div`
     max-width: 42vw;
     max-height: 40vh;
+    position: relative;
 
     img{
         max-width: inherit;
@@ -217,6 +224,29 @@ export const ImageContainer = styled.div`
         height: inherit;
         width: inherit;
         object-fit: cover;
+        filter: brightness(100%);
+    }
+
+
+    span{
+        width: 100%;
+        display: none;
+        justify-content: center;
+        margin: 0 auto;
+        font-size: 2.2rem;
+        color: #b7b7b7;
+        position: absolute;
+        top: 40%;
+        z-index: 2;  
+    }
+
+    &:hover{
+        filter: brightness(70%);
+        cursor: pointer;
+
+        span{
+            display: flex;
+        }
     }
 
     @media (max-width:780px){

@@ -1,17 +1,17 @@
 import {AppProps} from 'next/app'
 import Head from 'next/head'
-import { GlobalStyle } from '../styles/global'
+import { LayoutProvider } from '../contexts/LayoutContext'
+
 
 function MyApp({ Component, pageProps } : AppProps) {
   return (
-    <>
+    <LayoutProvider>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <GlobalStyle/>
       <Component {...pageProps} />
       
-    </>
+    </LayoutProvider>
   )
     
 }

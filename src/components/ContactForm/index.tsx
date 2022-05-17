@@ -32,7 +32,7 @@ export function ContactForm(){
             </div>
               <textarea rows={4} placeholder="Mensagem" onChange={(e)=>setMessage(e.target.value)}></textarea>
 
-              <button>Enviar</button>
+              <button className="submit-button">Enviar</button>
         </FormContainer>
     )
 }
