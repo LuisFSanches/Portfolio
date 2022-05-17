@@ -35,18 +35,19 @@ export const FormContainer = styled.form`
         width: 43rem;
     }
     @media (max-width:540px){
-        width: 90%;
+        width: 95%;
         .form-row{
            flex-direction: column;
        }
-
-    }
        input{
            width: 100%;
        }
        input:last-child{
-        margin-left: 0;
+        margin-left:0;
+        }
+
     }
+
     
    
 `

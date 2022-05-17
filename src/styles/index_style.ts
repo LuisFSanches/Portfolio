@@ -1,9 +1,8 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 interface MainProps{
     overlay: boolean
 }
-
 
 export const Main = styled.main<MainProps>`
     width: 100%; 
@@ -23,7 +22,7 @@ export const Introduction = styled.section`
     flex-direction: column;
     margin-right: 5rem;
     margin-top:7rem;
-    margin-bottom: 10rem;
+    margin-bottom: 8rem;
 
     h1{
         font-size:6rem;
@@ -72,6 +71,7 @@ export const Introduction = styled.section`
 
     @media (max-width:400px){
         padding: 0 1rem;
+        margin-bottom: 8.8rem;
         p{
             margin-bottom: 1rem;
         }
@@ -90,6 +90,7 @@ export const Section= styled.section`
     flex-direction: column;
     margin-right: 5rem;
     margin-top:12rem;
+    
 
     p{
             font-size: 1.3rem;
@@ -310,13 +311,13 @@ export const ProjectDescription = styled.div<ProjectContainer>`
         }
     }
 
-
- 
 `
+
+
 
 export const TechsApplied = styled.div`
     width: 90%;
-    margin-left: 2rem;
+    margin-left: 1rem;
     margin-top: 1rem;
     ul{
         display: flex;
@@ -341,11 +342,19 @@ export const TechsApplied = styled.div`
             max-width: 95%;
             margin-left: 1rem;
             font-size: 1rem;
-        }
+        } 
+    }
+`
+export const ProjectLink = styled.div`
+    width: 90%;
+    margin-left: 1rem;
+    margin-top: 1rem;
 
-
-        
-       
+    a{
+        font-size: 1.2rem;
+    }
+    a:hover{
+        color: var(--gold-text);
     }
 `
 

@@ -1,38 +1,21 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect, useState } from "react";
 import { Container, Resume, Sections, SideMenu } from "./style";
-import { useScrollDirection } from "react-use-scroll-direction"
+import { useScrollDirection } from "../../hooks/useScrollDirection"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { LayoutContext } from "../../contexts/LayoutContext";
 
-
-
-
 export function Header(){
-    const [showHeader, setShowHeader] = useState(true)
-    const { isScrollingUp, isScrollingDown } = useScrollDirection()
-
+    //const [showHeader, setShowHeader] = useState(true)
+  
     const {showOpenMenu, showCloseMenuButton, handleOpenMenu, handleCloseMenu, handleCloseModals} = useContext(LayoutContext)
 
-
-
-    function handleShowScroll(){
-        if(isScrollingDown){
-            setShowHeader(false)
-        } else if(isScrollingUp){
-            setShowHeader(true)
-        }
-    }
-
-
-    useEffect(()=>{
-        handleShowScroll()
-    },[isScrollingDown || isScrollingUp])
+    
    
     return(
-        <Container showHeader={showHeader} >
+        <Container showHeader={useScrollDirection()} >
             <Resume>
                 <a href="/documents/curriculo.pdf" target="_blank" rel="noopener noreferrer">Currículo</a>
                 
@@ -67,7 +50,7 @@ export function Header(){
                     </button>
                 </a>
             </Sections>
-            <SideMenu showHeader={showHeader}>
+            <SideMenu showHeader={useScrollDirection()}>
                 {showCloseMenuButton
                     ? <button className="header-button" onClick={handleCloseMenu}>
                         <FontAwesomeIcon icon={faXmark}/>

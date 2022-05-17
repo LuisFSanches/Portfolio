@@ -4,9 +4,9 @@ import { ContactForm } from "../components/ContactForm";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { SocialMediaSideBar } from "../components/SocialMediaSideBar";
-import { Description, ImageContainer, Introduction, Main, MySkills, ProjectContainer, ProjectDescription, Section, Skill, TechsApplied } from "../styles/index_style";
+import { Description, ImageContainer, Introduction, Main, MySkills, ProjectContainer, ProjectDescription, ProjectLink, Section, Skill, TechsApplied } from "../styles/index_style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faGlobe} from "@fortawesome/free-solid-svg-icons";
 import { useContext, useEffect, useRef} from 'react';
 import { LayoutContext } from '../contexts/LayoutContext';
 import { ZoomedImage } from '../components/ZoomedImage';
@@ -80,6 +80,11 @@ export default function Home() {
             </Skill>
 
             <Skill>
+              <img src="/images/nextjs.png" alt="" />
+              <p>Next.js</p>
+            </Skill>
+
+            <Skill>
               <img src="/images/node.png" alt="" />
               <p>Node.js</p>
             </Skill>
@@ -109,10 +114,7 @@ export default function Home() {
               <p>Flutter</p>
             </Skill>
 
-            <Skill>
-              <img src="/images/visualStudio.svg" alt="" />
-              <p>Visual Studio</p>
-            </Skill>
+  
           </MySkills>
         </Section>
         <Section id="meustrabalhos">
@@ -145,6 +147,7 @@ export default function Home() {
                     <li>Node.js</li>
                   </ul>
               </TechsApplied>
+
             </ProjectDescription>
           </ProjectContainer>
 
@@ -160,10 +163,18 @@ export default function Home() {
                   <ul>
                     <li>React</li>
                     <li>Javascript</li>
+                    <li>CSS</li>
                     <li>Node.js</li>
-                    <li>Css</li>
+                    <li>Heroku</li>
+                    
                   </ul>
               </TechsApplied>
+              
+              
+              <ProjectLink>
+                <a href="https://formulario-mirai-flores.netlify.app/" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGlobe}/></a>
+              </ProjectLink>
+
             </ProjectDescription>
 
               <ImageContainer onClick={()=>handleOpenZoomedImage("/images/projeto-formulario-mirai.png")}>
