@@ -69,7 +69,7 @@ export const Introduction = styled.section`
         }
     }
 
-    @media (max-width:400px){
+    @media (max-width:420px){
         padding: 0 1rem;
         margin-bottom: 8.8rem;
         p{

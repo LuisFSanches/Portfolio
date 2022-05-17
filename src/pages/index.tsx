@@ -7,31 +7,36 @@ import { SocialMediaSideBar } from "../components/SocialMediaSideBar";
 import { Description, ImageContainer, Introduction, Main, MySkills, ProjectContainer, ProjectDescription, ProjectLink, Section, Skill, TechsApplied } from "../styles/index_style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faGlobe} from "@fortawesome/free-solid-svg-icons";
-import { useContext, useEffect, useRef} from 'react';
+import { useContext, useEffect} from 'react';
 import { LayoutContext } from '../contexts/LayoutContext';
 import { ZoomedImage } from '../components/ZoomedImage';
+import Aos from 'aos'
+import "aos/dist/aos.css"
 
 export default function Home() {
 
   const {overlay, showOpenMenu, handleOpenZoomedImage, handleCloseModals,} = useContext(LayoutContext)
 
+  useEffect(()=>{
+    Aos.init({duration:1800})
+  },[])
   return (
     <>
       <GlobalStyle showScroll={showOpenMenu}/>
-      <Header />
+      <Header/>
       <SocialMediaSideBar/>
       <ZoomedImage/>
 
       <Main overlay={overlay}>
-        <Introduction id="introducao">
-          <p className="gold-text">Olá, me chamo</p>
-          <h1>Luis Felipe Sanches</h1>
+        <Introduction id="introducao" data-aos ="fade-down-right" data-aos-once="true">
+          <p className="gold-text" >Olá, me chamo</p>
+          <h1 >Luis Felipe Sanches</h1>
           <h2>Desenvolvedor FullStack.</h2>
           <p> Sou um Engenheiro Projetista que decidiu seguir um sonho antigo e se tornar um desenvolvedor de software. 
             Atualmente estou focado em estudar tecnologias que abrangem tanto o backend como o frontend. </p>
         </Introduction>
 
-        <Section id="sobremim">
+        <Section id="sobremim" data-aos ="fade-up-left" data-aos-once="true">
           <div className="title">
             <p className="gold-text">01. </p>
             <h1>Sobre mim</h1>
@@ -49,7 +54,7 @@ export default function Home() {
           
         </Section>
 
-        <Section id="skills">
+        <Section id="skills" data-aos ="fade-up-right" data-aos-once="true">
           <div className="title">
             <p className="gold-text">02. </p>
             <h1>Skills</h1>
@@ -117,7 +122,7 @@ export default function Home() {
   
           </MySkills>
         </Section>
-        <Section id="meustrabalhos">
+        <Section id="meustrabalhos" data-aos ="fade-up-left" data-aos-once="true">
           <div className="title">
             <p className="gold-text">03. </p>
             <h1>Meus Trabalhos</h1>
@@ -189,7 +194,7 @@ export default function Home() {
           </ProjectContainer>
         </Section>
 
-        <Section id="contato">
+        <Section id="contato" data-aos ="fade-up-right" data-aos-once="true">
           <div className="title">
               <p className="gold-text">04. </p>
               <h1>Entre em Contato</h1>
