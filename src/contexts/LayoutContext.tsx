@@ -11,6 +11,12 @@ interface NavBarProps{
     handleOpenZoomedImage: (image:string) => void
     handleCloseZoomedImage: ()=> void
     handleCloseModals: ()=> void
+    sendingEmail: boolean
+    setSendingEmail: (status:boolean)=> void
+    emailSentMessage: boolean
+    handleEmailSentMessage: ()=> void
+    emailError: boolean
+    setEmailError: (status:boolean)=> void
 }
 
 interface LayoutProviderProps{
@@ -28,6 +34,10 @@ export function LayoutProvider({children}:LayoutProviderProps){
     const [zoomedImage, setZoomedImage] = useState('')
     const [showZoomedImage, setShowZoomedImage] = useState(false)
 
+    const [sendingEmail, setSendingEmail] = useState(false)
+    const [emailSentMessage, setEmailSentMessage] = useState(false)
+    const [emailError, setEmailError] = useState(false)
+
 
     function handleOpenMenu(){
         setOpenMenu(true)
@@ -39,29 +49,30 @@ export function LayoutProvider({children}:LayoutProviderProps){
         setOpenMenu(false)
         setShowCloseMenuButton(false)
         setOverlay(false)
+        
     }
 
     function handleOpenZoomedImage(image: string){
         setZoomedImage(image)
         setShowZoomedImage(true)
         setOverlay(true)
-        console.log('abriu')
     }
 
     function handleCloseZoomedImage(){
         setZoomedImage('')
         setShowZoomedImage(false)
         setOverlay(false)
+        
+    }
+
+    function handleEmailSentMessage(){
+        setEmailSentMessage(true)
+        setTimeout(()=>{setEmailSentMessage(false)},2000)
     }
 
     function handleCloseModals(){
-        if (showOpenMenu === true){
-            setOpenMenu(false)
-            setShowCloseMenuButton(false)
-        } else if(showZoomedImage === true){
-            setShowZoomedImage(false)
-        }
-        setOverlay(false)
+            handleCloseMenu()
+            handleCloseZoomedImage()       
     }
 
 
@@ -72,7 +83,10 @@ export function LayoutProvider({children}:LayoutProviderProps){
                 handleOpenMenu,handleCloseMenu, 
                 zoomedImage, showZoomedImage,
                 handleOpenZoomedImage,handleCloseZoomedImage,
-                overlay, handleCloseModals
+                overlay, handleCloseModals,
+                sendingEmail, setSendingEmail,
+                emailSentMessage, handleEmailSentMessage,
+                emailError, setEmailError
             }
             }>
             {children}

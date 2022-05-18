@@ -13,6 +13,7 @@ export const Main = styled.main<MainProps>`
     justify-content: center;
     margin: 0 auto;
     overflow-y:hidden;
+    overflow-x: hidden;
     filter: ${(props)=> props.overlay ? 'brightness(50%)' : 'brightness(100%)'};
 `
 

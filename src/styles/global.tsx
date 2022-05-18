@@ -21,16 +21,12 @@ export const GlobalStyle = createGlobalStyle<ScrollProps>`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        
-        @media (max-width:410px){
-            overflow-x: hidden;
-        }
+        max-width:99vw
     }
 
     body{
-        max-width: 100%;
+        width: 1012vw;
         background: var(--background);
-        
         overflow-y: ${(props)=>
             props.showScroll ? 'hidden' :  'auto'
         };

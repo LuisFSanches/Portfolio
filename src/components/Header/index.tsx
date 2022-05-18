@@ -1,26 +1,26 @@
+/* eslint-disable react/display-name */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useContext, useEffect, useState } from "react";
+import { useContext} from "react";
 import { Container, Resume, Sections, SideMenu } from "./style";
 import { useScrollDirection } from "../../hooks/useScrollDirection"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { LayoutContext } from "../../contexts/LayoutContext";
+import React from "react";
 
 export function Header(){
-    //const [showHeader, setShowHeader] = useState(true)
-  
-    const {showOpenMenu, showCloseMenuButton, handleOpenMenu, handleCloseMenu, handleCloseModals} = useContext(LayoutContext)
-
-    
    
+    const {showOpenMenu, showCloseMenuButton, handleOpenMenu, handleCloseMenu} = useContext(LayoutContext)
+
+
     return(
-        <Container showHeader={useScrollDirection()} >
+        <Container showHeader={useScrollDirection()}>
             <Resume>
                 <a href="/documents/curriculo.pdf" target="_blank" rel="noopener noreferrer">Currículo</a>
                 
             </Resume>
-            <Sections showMenu={showOpenMenu} >
+            <Sections showMenu={showOpenMenu}>
                 <a href="#introducao">
                     <button className="nav-button" onClick={handleCloseMenu}>
                         <span>01.</span>

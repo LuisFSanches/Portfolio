@@ -83,8 +83,12 @@ export const Sections = styled.div <MenuProps>`
         }
 
         a~a{
-        margin-left: 0rem;
+            margin-left: 0rem;
+        }
     }
+
+    @media (max-width:420px){
+        max-width: 15rem;
     }
 `
 

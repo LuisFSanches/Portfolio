@@ -7,7 +7,7 @@ import { SocialMediaSideBar } from "../components/SocialMediaSideBar";
 import { Description, ImageContainer, Introduction, Main, MySkills, ProjectContainer, ProjectDescription, ProjectLink, Section, Skill, TechsApplied } from "../styles/index_style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faGlobe} from "@fortawesome/free-solid-svg-icons";
-import { useContext, useEffect} from 'react';
+import { useContext, useEffect, useRef} from 'react';
 import { LayoutContext } from '../contexts/LayoutContext';
 import { ZoomedImage } from '../components/ZoomedImage';
 import Aos from 'aos'
@@ -15,19 +15,29 @@ import "aos/dist/aos.css"
 
 export default function Home() {
 
-  const {overlay, showOpenMenu, handleOpenZoomedImage, handleCloseModals,} = useContext(LayoutContext)
+  const {overlay, handleOpenZoomedImage,handleCloseModals} = useContext(LayoutContext)
+  
+  const ref = useRef<HTMLDivElement>(null)
 
   useEffect(()=>{
+    const node = ref.current
+    document.addEventListener("mousedown", (event)=>{
+      if(node?.contains(event.target as Node)){
+        handleCloseModals()
+      }
+    })
     Aos.init({duration:1800})
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
+  
   return (
     <>
-      <GlobalStyle showScroll={showOpenMenu}/>
+      <GlobalStyle showScroll={overlay}/>
       <Header/>
       <SocialMediaSideBar/>
       <ZoomedImage/>
 
-      <Main overlay={overlay}>
+      <Main overlay={overlay}  ref={ref}>
         <Introduction id="introducao" data-aos ="fade-down-right" data-aos-once="true">
           <p className="gold-text" >Olá, me chamo</p>
           <h1 >Luis Felipe Sanches</h1>
@@ -44,8 +54,8 @@ export default function Home() {
 
             <Description>
               <div className="description-text">
-                  <p>Olá, meu nome é Luis Felipe, atuei por mais de dois anos como Engenheiro Projetista, principalmente na área de <a href="https://grabcad.com/luis.felipe.sanches-1/models" target="_blank" rel="noopener noreferrer" className="gold-text">projetos</a> e análises envolvendo segurança de máquinas e equipamentos. </p>
-                  <p>Gosto muito de aprender e me atualizar, sempre busco entregar o melhor possível, me atentando a pequenos detalhes. Essa é uma característica que desenvolvi ainda como projetista. </p>
+                  <p>Olá, meu nome é Luis Felipe Sanches da Silva, atuei por mais de dois anos como Engenheiro Projetista, principalmente na área de <a href="https://grabcad.com/luis.felipe.sanches-1/models" target="_blank" rel="noopener noreferrer" className="gold-text">projetos</a> e análises envolvendo segurança de máquinas e equipamentos. </p>
+                  <p>Sempre busco entregar o melhor possível, me atentando a pequenos detalhes. Essa é uma característica que desenvolvi ainda como projetista. </p>
                   <p>Atualmente tenho feito pequenos projetos como freelancer, mas sigo em busca de uma oportunidade de ingressar no mercado e enfrentar novos desafios como desenvolvedor.</p>
               </div>
 
@@ -188,8 +198,6 @@ export default function Home() {
                   <img src="/images/projeto-formulario-mirai.png" alt="" />
 
               </ImageContainer>
-
-             
             
           </ProjectContainer>
         </Section>
