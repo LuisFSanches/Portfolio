@@ -133,6 +133,8 @@ export const Description = styled.div`
         font-size: 1.3rem;
         line-height: 1.25;
         margin-bottom: 0.8rem;
+        margin-right: 0.8rem;
+        text-align: justify
     }
     img{
         width: 16rem;

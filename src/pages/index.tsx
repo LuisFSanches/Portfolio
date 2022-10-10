@@ -54,9 +54,9 @@ export default function Home() {
 
             <Description>
               <div className="description-text">
-                  <p>Olá, meu nome é Luis Felipe Sanches da Silva, atuei por quase três anos como Engenheiro Projetista, principalmente na área de <a href="https://grabcad.com/luis.felipe.sanches-1/models" target="_blank" rel="noopener noreferrer" className="gold-text">projetos</a> e análises envolvendo segurança de máquinas e equipamentos. </p>
-                  <p>Trabalho muito bem em equipe, e sou bastante detalhista. Essa é uma característica que desenvolvi ainda como projetista. </p>
-                  <p>Atualmente estou trabalhando como desenvolvedor fullstack na <a href="https://www.linkedin.com/company/corelabbr/" target="_blank" rel="noopener noreferrer">Corelab</a>.</p>
+                <p>Olá, meu nome é Luis Felipe Sanches da Silva, atuei por quase três anos como Engenheiro Projetista, principalmente na área de <a href="https://grabcad.com/luis.felipe.sanches-1/models" target="_blank" rel="noopener noreferrer" className="gold-text">projetos</a> e análises envolvendo segurança de máquinas e equipamentos. </p>
+                <p>Trabalho muito bem em equipe, e sou bastante detalhista. Essa é uma característica que desenvolvi ainda como projetista. </p>
+                <p>Atualmente estou trabalhando como desenvolvedor fullstack na <a href="https://www.linkedin.com/company/corelabbr/" target="_blank" rel="noopener noreferrer" style={{ color:'#8e3ef7' }}>Corelab</a>.</p>
               </div>
 
               <img src='/images/avatar.png' alt="" />
