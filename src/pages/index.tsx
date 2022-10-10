@@ -43,7 +43,7 @@ export default function Home() {
           <h1 >Luis Felipe Sanches</h1>
           <h2>Desenvolvedor FullStack.</h2>
           <p> Sou um Engenheiro Projetista que decidiu seguir um sonho antigo e se tornar um desenvolvedor de software. 
-            Atualmente estou focado em estudar tecnologias que abrangem tanto o backend como o frontend. </p>
+            Atualmente atuo como desenvolvedor web fullstack. </p>
         </Introduction>
 
         <Section id="sobremim" data-aos ="fade-up-left" data-aos-once="true">
@@ -54,9 +54,9 @@ export default function Home() {
 
             <Description>
               <div className="description-text">
-                  <p>Olá, meu nome é Luis Felipe Sanches da Silva, atuei por mais de dois anos como Engenheiro Projetista, principalmente na área de <a href="https://grabcad.com/luis.felipe.sanches-1/models" target="_blank" rel="noopener noreferrer" className="gold-text">projetos</a> e análises envolvendo segurança de máquinas e equipamentos. </p>
-                  <p>Sempre busco entregar o melhor possível, me atentando a pequenos detalhes. Essa é uma característica que desenvolvi ainda como projetista. </p>
-                  <p>Atualmente tenho feito pequenos projetos como freelancer, mas sigo em busca de uma oportunidade de ingressar no mercado e enfrentar novos desafios como desenvolvedor.</p>
+                  <p>Olá, meu nome é Luis Felipe Sanches da Silva, atuei por quase três anos como Engenheiro Projetista, principalmente na área de <a href="https://grabcad.com/luis.felipe.sanches-1/models" target="_blank" rel="noopener noreferrer" className="gold-text">projetos</a> e análises envolvendo segurança de máquinas e equipamentos. </p>
+                  <p>Trabalho muito bem em equipe, e sou bastante detalhista. Essa é uma característica que desenvolvi ainda como projetista. </p>
+                  <p>Atualmente estou trabalhando como desenvolvedor fullstack na <a href="https://www.linkedin.com/company/corelabbr/" target="_blank" rel="noopener noreferrer">Corelab</a>.</p>
               </div>
 
               <img src='/images/avatar.png' alt="" />
